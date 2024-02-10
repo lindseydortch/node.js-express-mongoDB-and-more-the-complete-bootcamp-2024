@@ -133,21 +133,69 @@
 ## Using Modules 2: Our Own Modules 
 - We can create our own modules and export something from them like a function and import this function into another file
 - In Node.js every single file is created as a module
+- We can use module.exports to export anonymous functions 
+  - exports is a property on the modules object that we have access to in every file 
+- We use require to import this file into our index.js
 
 ## Introduction to NPM and the package.json File Structure 
-- 
+- NPM - node package manager 
+  - Automatically comes with Node.js 
+  - All open source repositories (packages)
+  - Largest software registry in the world
+  - Used across all development, not just in node.js, but on the frontend itself  
 
 ## Types of Package and Installs 
-- 
+- There are two types of dependencies we can install 
+  - Simple dependencies - code on which we build our own application 
+    - Our project and our code depends on these to work correctly 
+  - Development dependencies - usually tools for development - not needed for production, we simply use them to develop our applications 
+    - Code bundler, testing library 
+    - To download as a dependency = `npm i nodemon --save-dev`
+    - These show up as devDependencies in our package.json 
+- There are two types of installs 
+  - We did this locally 
+    - We end up with dependencies of the our dependencies 
+  - Global installs 
+    - Will be available anywhere 
+    - Should be installed globally when it provides an executable command you can run from the command line 
+- Now to run our app using nodemon, we can use `nodemon index.js`
+- Had we not installed nodemon globally, then we would put it in our scripts in our package.json and then we would run that script 
 
 ## Using Modules 3: 3 Party Modules 
-- 
+- When using npm, you can look for the documentation on the package on npm 
 
 ## Package Versioning and Updating 
-- 
+- Version numbers 
+  - Semantic version number, always express with 3 numbers: major.minor.patch 
+    - Patch - used to fix bugs 
+    - Minors - some new features into the package, does not include breaking changes -- so it is backwards compatable 
+    - Major - Whenever it is a huge new release that could break previous versions 
+- Updating packages 
+  - ^ -- this means we accept patch and minor releases 
+  - We can write npm outdated 
+  - You can also install packages at a certain package number 
+  - ~ -- only accepts patch relseases -- this is the safest option 
+  - `npm update <packageName>`
+  - * -- all of the versions -- even the ones with breaking changes 
+- Deleting packages 
+  - `npm uninstall <packageName>` 
+  - Will delete it from the package.json and from the node_modules folder 
+- Working on projects with other people 
+  - The node_modules folder is never shared because it can all be used via npm 
+  - If you delete the folder all you have to do is just npm i 
+- The package-lock.json 
+  - This includes all of the packages we are using 
+  - This is important so this works between different computers 
+- Always share your package.json and package-lock.json 
 
 ## Setting Up Prettier In VS Code 
-- 
+- DotENV is useful for highlighting environmental variables 
+- Prettier is very opinionated 
+  - Better because this is one last thing we have to do 
+  - Automatically does our semicolons for us 
+  - You can look at the docs to see all the stuff you can configure with Prettier 
+  - You can change the printWidth and specify how many characters you want before it breaks the line and wrap it 
 
 ## Recap and What's Next 
-- 
+- You can create a small demo project using what you've learned here 
+- The next two sections are very theoretical
